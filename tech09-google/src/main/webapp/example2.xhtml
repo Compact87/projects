@@ -35,8 +35,10 @@
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png"></link>
   </head>
 
-  <body>
+  
 
+  <body >
+	  
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -54,13 +56,19 @@
             </ul>
           </div><!--/.nav-collapse -->
         </div>
+		<a href="#123" data-role="button" data-inline="true" data-transition="fade" data-position-to="window" data-rel="popup">Popup</a>
+		<div data-role="popup" id="123" class="ui-content" data-overlay-theme="a">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
+			<p>This is a popup</p>
+		</div>
+		<img id="image-1" alt="" src="bootstrap/img/zima.png"/>
       </div>
+	  <a href="http://localhost:8080//tech09-google-0.0.1-SNAPSHOT/example3.xhtml" id="button-1" data-rel="popup" data-role="button" data-icon="arrow-u" data-iconpos="right" data-theme="b">page 3</a>
     </div>
-
+    
     <div class="container">
-
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</br></p>
+	
+    
 
     </div> <!-- /container -->
 
