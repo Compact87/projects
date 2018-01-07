@@ -20,9 +20,9 @@ public class SearchRS
   @GET
   @Path("{query}")
   @Produces({"application/json"})
-  public Response getBySearch(@PathParam("query") String q)
+  public List<Video> getBySearch(@PathParam("query") String q)
   {
     this.vids = this.search.searchres(q);
-    return Response.ok(this.vids).build();
+    return this.vids;
   }
 }
