@@ -1,10 +1,13 @@
 package controller;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Produces;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,11 +16,25 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 
 import service.Video;
+
 import javax.enterprise.context.Dependent;
 
-@Dependent
-@Named
-public class manager {
+@SessionScoped
+@ManagedBean
+public class manager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+    @Inject
+    private TrimConverter convert;
+	public TrimConverter getConvert() {
+		return convert;
+	}
+
+
+
+
 	@Inject
 	private SearchEJB sejb;
 	 
@@ -25,28 +42,35 @@ public class manager {
 	  public List<Video> getVids() {
 		return vids;
 	}
-
-
-
-	private String query;
-
-	  public String getQuery() {
-	  	return query;
-	  }
-
-	  public void setQuery(String query) {
-	  	this.query = query;
-	  }
 	
 
+
+	
+	private Query query=new Query();
+    
 	  
+	public Query getQuery() {
+		return query;
+	}
+
+
+	public void setQuery(Query query) {
+		this.query = query;
+	}
+
+
+
+
 	public void search(){
 	
-		vids=sejb.search(query);
+		vids=sejb.search(query.getQuery());
+		System.out.println("looking for.." +query.getQuery()+ "...please wait");
+		for(Video video : vids){System.out.println(video.getId()+ "\\"+video.getTitle());
+		
 		}
+	   
 	
-	
-	}
+	}}
 	
 
 

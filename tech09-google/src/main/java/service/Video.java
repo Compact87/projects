@@ -1,5 +1,8 @@
 package service;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Video {
  private String id;
  private String title;

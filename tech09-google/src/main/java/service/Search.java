@@ -98,6 +98,7 @@ public class Search
         {
           Thumbnail thumbnail = singleVideo.getSnippet().getThumbnails().getDefault();
           Video vid = new Video();
+          
           vid.setId(rId.getVideoId());
           vid.setTitle(singleVideo.getSnippet().getTitle());
           vid.setThumbnail(thumbnail.getUrl());

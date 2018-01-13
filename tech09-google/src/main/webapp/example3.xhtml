@@ -88,7 +88,7 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="google-maps">
         <h1>
-         <font size="3" color="red">SERVICES</font>
+         <font size="3" color="white">SERVICES</font>
         </h1>
         <p></p>
         <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
@@ -98,51 +98,52 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
+        
 		 <h:form>
 		  <h:panelGrid>
 		    <h:outputLabel value="Youtube Search" />
-		    <h:inputText value="#{manager.query}" />
+		    <h:inputText value="#{manager.query.query}" >
+		     <f:converter binding="#{manager.convert}"/>
+		    </h:inputText>
 		  </h:panelGrid>
-		  <h:commandButton action="#{manager.search()}" value="search yt" >
-		    <f:ajax execute="@form" render=":vidList "></f:ajax>
+		  <h:commandButton action="#{manager.search}" value="search yt" >
+		    <f:ajax execute="@form" render=":vidList1 "></f:ajax>
 		  </h:commandButton>
 		 </h:form>
+		 <h1 style="text-decoration:none;color:white;">List of videos</h1>
+
+    <h:dataTable id="vidList1" value="#{manager.vids}" var="vd" styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row" border="3"	>
+
+    	  <h:column>
+      	   <f:facet name="header">
+      	    <h:outputLabel value="Title"/>
+     	   </f:facet>
+      	   <h:outputText style="text-decoration:none;color:white;" value="#{vd.title}"/>
+    	  </h:column>
+
+     	 <h:column>
+    	   <f:facet name="header">
+     	     <h:outputLabel value="Link"/>
+     	   </f:facet>
+      	  
+      	   <h:outputLink value="https://www.youtube.com/watch?v=#{vd.id}">
+      	    <h:graphicImage value="#{vd.thumbnail}" />
+      	   </h:outputLink>
+   	    </h:column>
+      
+    </h:dataTable> 
         </div>
         
          
         
         <div class="span4">
-          <h2>BUY</h2>
-          <p>bump bump bump </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <h1 style="text-decoration:none;color:white;">Bump </h1>
        </div>
        <div class="span2">
-		 <h1>List of videos</h1>
+		 <h1 style="text-decoration:none;color:white;">Another Bump </h1>
 
-    <h:dataTable id="vidList" value="#{manager.vids}" var="vd" border="10">
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Title"/>
-        </f:facet>
-        <h:outputText value="#{vd.title}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Price"/>
-        </f:facet>
-         <h:outputText value="#{vd.id}"/>
-      </h:column>
-      
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Thumbnail"/>
-        </f:facet>
-         <h:outputText value="#{vd.thumbnail}"/>
-      </h:column>
-
-    </h:dataTable> 
        </div>
         <div class="span4">
 			
