@@ -62,8 +62,8 @@ public class manager implements Serializable {
 
 
 	public void search(){
-	
-		vids=sejb.search(query.getQuery());
+	    String q=query.getQuery().replaceAll(" ","%20");
+		vids=sejb.search(q);
 		System.out.println("looking for.." +query.getQuery()+ "...please wait");
 		for(Video video : vids){System.out.println(video.getId()+ "\\"+video.getTitle());
 		

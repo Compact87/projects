@@ -8,171 +8,146 @@
 <!ENTITY copy   "&#169;">]>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:c="http://java.sun.com/jstl/core"> 
-  <h:head>
-  	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-    <meta charset="utf-8"></meta>
-    <title>Bootstrap, from Twitter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    <meta name="description" content=""></meta>
-    <meta name="author" content=""></meta>
-   
-   
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"></link>
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        background-image: url("bootstrap/img/city1.png");
-      }
-    </style>
-   
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core">
 
-   
-      <script src="bootstrap/js/html5shiv.js"></script>
-    
+<h:head>
+	<link rel="stylesheet"
+		href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<meta charset="utf-8"></meta>
+	<title>Bootstrap, from Twitter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="author" content=""></meta>
 
-    
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"></link>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"></link>
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"></link>
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"></link>
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png"></link>
-  </h:head>
 
-  <body >
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet"></link>
+	<style>
+body {
+	padding-top: 60px;
+	/* 60px to make the container go all the way to the bottom of the topbar */
+	background-image: url("bootstrap/img/nanotheme.jpg");
+}
+</style>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email"></input>
-              <input class="span2" type="password" placeholder="Password"></input>
-              <button type="submit" class="btn">Sign in</button>
-            </form>
-			
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+	<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"></link>
 
-    <div class="container">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="google-maps">
-        <h1>
-         <font size="3" color="white">SERVICES</font>
-        </h1>
-        <p></p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
-      
-   <!-- ////////////////////////////////////////////////////////////////////// -->
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-        
-		 <h:form>
-		  <h:panelGrid>
-		    <h:outputLabel value="Youtube Search" />
-		    <h:inputText value="#{manager.query.query}" >
-		     <f:converter binding="#{manager.convert}"/>
-		    </h:inputText>
-		  </h:panelGrid>
-		  <h:commandButton action="#{manager.search}" value="search yt" >
-		    <f:ajax execute="@form" render=":vidList1 "></f:ajax>
-		  </h:commandButton>
-		 </h:form>
-		 <h1 style="text-decoration:none;color:white;">List of videos</h1>
+	<script src="bootstrap/js/html5shiv.js"></script>
 
-    <h:dataTable id="vidList1" value="#{manager.vids}" var="vd" styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row" border="3"	>
 
-    	  <h:column>
-      	   <f:facet name="header">
-      	    <h:outputLabel value="Title"/>
-     	   </f:facet>
-      	   <h:outputText style="text-decoration:none;color:white;" value="#{vd.title}"/>
-    	  </h:column>
 
-     	 <h:column>
-    	   <f:facet name="header">
-     	     <h:outputLabel value="Link"/>
-     	   </f:facet>
-      	  
-      	   <h:outputLink value="https://www.youtube.com/watch?v=#{vd.id}">
-      	    <h:graphicImage value="#{vd.thumbnail}" />
-      	   </h:outputLink>
-   	    </h:column>
-      
-    </h:dataTable> 
-        </div>
-        
-         
-        
-        <div class="span4">
-        <h1 style="text-decoration:none;color:white;">Bump </h1>
-       </div>
-       <div class="span2">
-		 <h1 style="text-decoration:none;color:white;">Another Bump </h1>
 
-       </div>
-        <div class="span4">
-			
-        </div>
-      </div>
+</h:head>
 
-      <hr>
-       </hr>
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
-  
-    </div> <!-- /container -->
-    <!-- Le javascript
+<body>
+
+	
+
+	<div class="container">
+
+		<!-- Main hero unit for a primary marketing message or call to action -->
+		
+
+		<!-- ////////////////////////////////////////////////////////////////////// -->
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="span4">
+
+				<h:form>
+					
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputLabel value="Youtube Search" style="text-decoration:none;color:white;"/>
+							<p:inputText value="#{manager.query.query}" />
+
+							<h:commandButton action="#{manager.search}" value="search yt">
+								<f:ajax execute="@form" render=":vidList1 "></f:ajax>
+							</h:commandButton>
+						</h:panelGrid>
+					
+					
+				</h:form>
+				<h1 style="text-decoration: none; color: white;">List of videos</h1>
+
+				<p:dataTable id="vidList1" value="#{manager.vids}" var="vd"
+					paginator="true" rows="5">
+
+					<p:column>
+						<f:facet name="header">
+							<p:outputLabel value="Title"
+								style="text-decoration:none;color:white;" />
+						</f:facet>
+						<p:outputLabel name="Title"
+							style="text-decoration:none;color:white;" value="#{vd.title}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<p:outputLabel value="Link"
+								style="text-decoration:none;color:white;" />
+						</f:facet>
+
+						<p:lightBox id="lighbox2">
+							<h:outputLink value="https://www.youtube.com/watch?v=#{vd.id}">
+								<h:graphicImage value="#{vd.thumbnail}" />
+							</h:outputLink>
+
+							<f:facet name="inline">
+								<p:media value="https://www.youtube.com/v/#{vd.id}" width="400"
+									height="225" player="flash" />
+							</f:facet>
+						</p:lightBox>
+					</p:column>
+
+				</p:dataTable>
+			</div>
+
+
+
+			<div class="span4">
+				<p:lightBox id="lighbox2">
+					<h:outputLink value="#">
+						<h:outputText value="Video Content" />
+					</h:outputLink>
+
+					<f:facet name="inline">
+						<p:media value="" width="400" height="225" player="flash" />
+					</f:facet>
+				</p:lightBox>
+			</div>
+			<div class="span2">
+				<h1 style="text-decoration: none; color: white;">Another Bump</h1>
+
+			</div>
+			<div class="span4"></div>
+		</div>
+
+		<hr></hr>
+		<footer>
+			<p>&copy; Compact87</p>
+		</footer>
+
+	</div>
+	<!-- /container -->
+	<!-- Le javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="../assets/js/jquery.js"></script>
+	<script src="../assets/js/bootstrap-transition.js"></script>
+	<script src="../assets/js/bootstrap-alert.js"></script>
+	<script src="../assets/js/bootstrap-modal.js"></script>
+	<script src="../assets/js/bootstrap-dropdown.js"></script>
+	<script src="../assets/js/bootstrap-scrollspy.js"></script>
+	<script src="../assets/js/bootstrap-tab.js"></script>
+	<script src="../assets/js/bootstrap-tooltip.js"></script>
+	<script src="../assets/js/bootstrap-popover.js"></script>
+	<script src="../assets/js/bootstrap-button.js"></script>
+	<script src="../assets/js/bootstrap-collapse.js"></script>
+	<script src="../assets/js/bootstrap-carousel.js"></script>
+	<script src="../assets/js/bootstrap-typeahead.js"></script>
 
-  </body>
+</body>
 </html>
