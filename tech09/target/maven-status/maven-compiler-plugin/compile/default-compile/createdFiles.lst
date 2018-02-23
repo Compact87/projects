@@ -1,0 +1,6 @@
+service\ApplicationConfig.class
+service\SearchRS.class
+com\google\api\services\samples\youtube\cmdline\Auth.class
+service\Search.class
+service\Video.class
+service\Search$1.class
